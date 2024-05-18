@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { IsNotEmpty, IsString } from 'class-validator';
-import { validatePassword } from '../validation';
 
 @Schema({ timestamps: true })
 export class User {
