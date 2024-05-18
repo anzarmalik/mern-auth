@@ -11,11 +11,6 @@ export class User {
 
   @Prop({
     required: true,
-    validate: {
-      validator: validatePassword,
-      message:
-        'Password must be at least 8 characters long, contain at least 1 letter, 1 number, and 1 special character.',
-    },
   })
   password: string;
 
