@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosConfig';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ function SignIn() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/auth/signin', { email, password });
+      const response = await axios.post('/auth/signin', { email, password });
       const { token } = response.data;
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -20,7 +20,7 @@ function SignIn() {
         console.log("🚀 ~ handleSubmit ~ token: anzar ", token)
         navigate('/application');
       }
-      setError('Sign in failed. Please try again.');
+      setError('Sign in failed. Incorrect Credentials.');
     } catch (err) {
       setError('Sign in failed. Please try again Later.');
     }

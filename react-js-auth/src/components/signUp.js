@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosConfig';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('http://localhost:8000/auth/signup', { email, name, password });
+      await axios.post('/auth/signup', { email, name, password });
       navigate('/application');
     } catch (err) {
       setError('Sign up failed. Please try again.');
