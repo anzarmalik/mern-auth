@@ -23,6 +23,6 @@ export class SignUpDto {
   readonly password: string;
 
   @IsNotEmpty()
-  @IsEmail({}, { message: 'Please Enter Correct Email Format!' })
+  @IsEmail({}, { message: 'Please Enter Correct Email!' })
   readonly email: string;
 }
