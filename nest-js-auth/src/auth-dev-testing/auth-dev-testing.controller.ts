@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { AuthDevTestingService } from './auth-dev-testing.service';
 import { AuthGuard } from '@nestjs/passport';
 
@@ -8,7 +8,7 @@ export class AuthDevTestingController {
 
   @Get()
   @UseGuards(AuthGuard())
-  jwtTest(): string {
-    return this.authDevTestingService.testingJwtRoute();
+  jwtTest(@Req() req): { name: string; message: string } {
+    return this.authDevTestingService.testingJwtRoute(req);
   }
 }

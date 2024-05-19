@@ -33,7 +33,6 @@ export class AuthService {
         email,
         password: hashedPassword,
       });
-
       const token = this.jwtService.sign({ id: user._id });
       this.logger.log(`User created successfully - ${user._id}`, this.SERVICE);
 
