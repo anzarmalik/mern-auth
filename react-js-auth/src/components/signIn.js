@@ -12,12 +12,17 @@ function SignIn() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log("🚀 ~ handleSubmit ~ { email, password }:", { email, password })
-      const abc = await axios.post('http://localhost:8000/auth/signin', { email, password });
-      console.log("🚀 ~ handleSubmit ~ abc:", abc)
-      navigate('/application');
-    } catch (err) {
+      const response = await axios.post('http://localhost:8000/auth/signin', { email, password });
+      const { token } = response.data;
+      localStorage.setItem('token', token);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      if(token){
+        console.log("🚀 ~ handleSubmit ~ token: anzar ", token)
+        navigate('/application');
+      }
       setError('Sign in failed. Please try again.');
+    } catch (err) {
+      setError('Sign in failed. Please try again Later.');
     }
   };
 
