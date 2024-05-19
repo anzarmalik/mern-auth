@@ -63,6 +63,7 @@ export class AuthService {
       }
       const isPasswordMatched = bcrypt.compare(password, user.password);
       if (!isPasswordMatched) {
+        this.logger.warn(`User Invalid password- ${user._id}`, this.SERVICE);
         throw new UnauthorizedException('Invalid Email Or Password');
       }
       const token = this.jwtService.sign({ id: user._id });

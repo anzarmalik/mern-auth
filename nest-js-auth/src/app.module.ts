@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { AuthDevTestingModule } from './auth-dev-testing/auth-dev-testing.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     }),
     MongooseModule.forRoot(process.env.DB_URI),
     AuthModule,
+    AuthDevTestingModule,
   ],
   controllers: [AppController],
   providers: [Logger, AppService],
