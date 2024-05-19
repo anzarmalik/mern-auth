@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './schemas/user.schema';
 import { Model } from 'mongoose';
@@ -14,7 +14,9 @@ export class AuthService {
     @InjectModel(User.name)
     private userModel: Model<User>,
     private jwtService: JwtService,
+    private readonly logger: Logger, // instantiate logger
   ) {}
+  SERVICE: string = AuthService.name;
 
   async signUp(signUpDto: SignUpDto): Promise<{ token: string }> {
     const { name, email, password } = signUpDto;
@@ -26,6 +28,7 @@ export class AuthService {
     });
 
     const token = this.jwtService.sign({ id: user._id });
+    this.logger.log(`User created successfully - ${user._id}`, this.SERVICE);
 
     return { token };
   }
@@ -43,7 +46,7 @@ export class AuthService {
       throw new UnauthorizedException('Invalid Email Or Password');
     }
     const token = this.jwtService.sign({ id: user._id });
-
+    this.logger.log(`User signIn successfully - ${user._id}`, this.SERVICE);
     return { token };
   }
 }
