@@ -12,6 +12,6 @@ async function bootstrap() {
     cors: true,
   });
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(8000);
+  await app.listen(process.env.NODE_PORT || 8000);
 }
 bootstrap();

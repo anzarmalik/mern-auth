@@ -3,17 +3,23 @@ import axios from '../axiosConfig';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { handleAuthentication } from '../utils/auth';
-
+import { validatePassword } from '../utils/validation/passwordValidation';
 
 function SignUp() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const passwordValidationError = validatePassword(password);
+    if (passwordValidationError) {
+      setPasswordError(passwordValidationError);
+      return;
+    }
     try {
       const response = await axios.post('/auth/signup', { email, name, password });
       handleAuthentication(response, navigate);
@@ -52,7 +58,12 @@ function SignUp() {
           required
           margin="normal"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setPasswordError('');
+          }}
+          error={!!passwordError}
+          helperText={passwordError}
         />
         {error && <Typography color="error">{error}</Typography>}
         <Button type="submit" variant="contained" color="primary" fullWidth>
