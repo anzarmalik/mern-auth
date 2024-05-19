@@ -11,14 +11,16 @@ Secure Authentication Service for MERN Stack using ReactJs and NestJs
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
 
+
 # [React](https://react.dev/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield)](https://circleci.com/gh/facebook/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://legacy.reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
-
-React is a JavaScript library for building user interfaces.
-
-# ![Logo](docs/leaf.svg) MongoDB
+### React is a JavaScript library for building user interfaces.
 
 
-<h1 align="center">Simple & Basic MERN AUTH APP </h1>
+#  MongoDB
+### MongoDB is an open source, nonrelational database management system (DBMS)
+
+
+#  <h1 align="center">Simple & Basic MERN AUTH APP </h1>
 This is a very basic example of signIn and signUp in Node.js and NestJs framework . I have applied REST based API recommendations  .
 
 From front-end i have used ReactJs starter setup . Check images in docs.
