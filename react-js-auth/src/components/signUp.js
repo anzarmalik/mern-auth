@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from '../axiosConfig';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { handleAuthentication } from '../utils/auth';
+
 
 function SignUp() {
   const [email, setEmail] = useState('');
@@ -13,8 +15,8 @@ function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('/auth/signup', { email, name, password });
-      navigate('/application');
+      const response = await axios.post('/auth/signup', { email, name, password });
+      handleAuthentication(response, navigate);
     } catch (err) {
       setError('Sign up failed. Please try again.');
     }
