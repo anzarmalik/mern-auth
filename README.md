@@ -15,6 +15,8 @@ Secure Authentication Service for MERN Stack using ReactJs and NestJs
 
 React is a JavaScript library for building user interfaces.
 
+# ![Logo](docs/leaf.svg) MongoDB
+
 
 <h1 align="center">Simple & Basic MERN AUTH APP </h1>
 This is a very basic example of signIn and signUp in Node.js and NestJs framework . I have applied REST based API recommendations  .
@@ -74,7 +76,7 @@ localhost:8000
 ```
 
 My Postman API collection public link below : 
-https://www.postman.com/gladiator-dev/workspace/anzar-dev/collection/5511458-04cfd33b-d038-4b42-85a7-9b4226dece26?action=share&creator=5511458
+https://www.postman.com/gladiator-dev/workspace/anzar-dev/collection/5511458-440a63fb-80ba-4a65-96c1-ec3e48b373c9?action=share&creator=5511458
 
 
 ### API's :
