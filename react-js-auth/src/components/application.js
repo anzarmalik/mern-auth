@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../axiosConfig';
+import axios from '../utils/axiosConfig';
 import { Container, Typography } from '@mui/material';
 
 function Application() {

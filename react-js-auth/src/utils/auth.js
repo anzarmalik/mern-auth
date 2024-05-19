@@ -1,4 +1,4 @@
-import axios from '../axiosConfig';
+import axios from './axiosConfig';
 
 export const handleAuthentication = (response, navigate) => {
     const { token } = response.data;
